@@ -47,6 +47,8 @@ gem 'enumerize', :git => 'git://github.com/brainspec/enumerize.git'
 
 gem 'devise'
 
+gem "paperclip"
+
 group :production do
   gem 'pg'
 end
