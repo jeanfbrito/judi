@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require tasker/tasker.js
+//= require init.js
 //= require_tree .
+//= require bootstrap
+//= require turbolinks
