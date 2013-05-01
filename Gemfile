@@ -45,6 +45,10 @@ gem 'simple_form'
 
 gem 'enumerize', :git => 'git://github.com/brainspec/enumerize.git'
 
+gem 'initjs'
+gem 'turbolinks'
+gem 'simple_form'
+
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
