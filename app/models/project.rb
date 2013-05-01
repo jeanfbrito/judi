@@ -8,6 +8,8 @@ class Project < ActiveRecord::Base
 
   has_many :documents
 
+  belongs_to :user
+
   def have_tasks?
     if tasks.count > 0
       return true
