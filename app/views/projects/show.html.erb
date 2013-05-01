@@ -1,0 +1,122 @@
+<div class="span7" style="margin: 0;">
+  <div class="well" style="padding: 8px 0; background: white; padding: 10px;">
+    <%= link_to 'Edit', "#editProject", :data => { :url => edit_project_path(@project), :toggle => "modal" }, :class => "edit-project-button" %> |
+    <%= link_to 'Back', projects_path %>
+    <h1>
+      <%= @project.title %>  
+    </h1>
+
+
+    <ul id="myTab" class="nav nav-tabs">
+      <li class="active"><a href="#tasks" data-toggle="tab">Tasks</a></li>
+      <li class=""><a href="#description" data-toggle="tab">Description</a></li>            
+      <li class=""><a href="#files" data-toggle="tab">Attached Files</a></li>            
+      <li class=""><a href="#history" data-toggle="tab">History</a></li>
+
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade  active in" id="tasks">
+
+        <a href="#newTask" data-url="<%= new_task_path(:project_id => @project.id)%>" data-toggle="modal" class="new-task-button"><i class="icon-plus"></i> New Task</a>
+        
+        <% if @project.have_tasks? %>
+        <%= render "tasks" %>
+        <% end %>
+
+        <h3>
+          Completed Tasks
+        </h3>
+        <ul class="tasks done">
+          <li>
+            <i class="icon-ok"></i> <span class="title">Wash the Car</span> <span class="meta">Completed <em>2 days ago</em> by <em>John</em></span>
+          </li>
+          <li>
+            <i class="icon-ok"></i> <span class="title">Call the plumber</span> <span class="meta">Completed <em>5 days ago</em> by <em>John</em></span>
+          </li>
+          <li>
+            <i class="icon-ok"></i> <span class="title">Try that new cookie recipe</span> <span class="meta">Completed <em>2 weeks ago</em> by <em>Jill</em></span>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-pane fade" id="description">
+        <p><%= raw @project.description %></p>
+      </div>
+      <div class="tab-pane fade" id="files">
+        <a href="#newDocument" data-url="<%= new_document_path(:project_id => @project.id)%>" data-toggle="modal" class="new-document-button"><i class="icon-plus"></i> New Document</a>
+        <% if @project.have_documents? %>
+          <%= render "documents" %>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="history">
+        <table class="table table-striped table-condensed table-bordered">
+          <thread>
+            <tr>
+              <th>Time</th>
+              <th>Description</th>
+              <th>Status</th>
+            </tr>
+          </thread>
+          <tbody>
+            <tr>
+              <td>25/02/2013 00:03:02</td>
+              <td>Iniciados os trabalhos na tarefa</td> 
+              <td align=right; width=50px;> <span class="label label-info">Iniciada</span> </td>
+            </tr>
+
+            <tr>
+              <td>25/02/2013 00:07:02</td>
+              <td>Aguardando cliente - Falta definicao de cores</td> 
+              <td align=right; width=50px;><span class="label label-warning">Aguardando</span> </td>
+            </tr>
+
+            <tr>
+              <td>25/02/2013 00:13:02</td>
+              <td>Reiniciados os trabalhos na tarefa</td> 
+              <td align=right; width=50px;><span class="label label-info">Trabalhando</span> </td>
+            </tr>
+
+            <tr>
+              <td>25/02/2013 00:20:02</td>
+              <td>Finalizados os trabalhos na tarefa</td> 
+              <td align=right; width=50px;> <span class="label label-success">Terminada</span>  </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/statusbar"%>
+
+ 
+<!-- Modal -->
+<div id="newTask" class="span7 modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3>New Task</h3>
+  </div>
+  <div class="modal-body">
+    Carregando...
+  </div>
+</div>
+
+<div id="editProject" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3>Editing Project</h3>
+  </div>
+  <div class="modal-body">
+    Carregando...
+  </div>
+</div>
+
+<div id="newDocument" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3>New Document</h3>
+  </div>
+  <div class="modal-body">
+    Carregando...
+  </div>
+</div>

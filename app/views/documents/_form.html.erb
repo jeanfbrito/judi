@@ -1,0 +1,32 @@
+<%= simple_form_for(@document) do |f| %>  
+  <%= f.hidden_field :project_id %>
+  <% if @document.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@document.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @document.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "span4"%>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :class => "span4", :rows => 3 %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.file_field :attachment%>
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

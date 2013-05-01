@@ -1,0 +1,19 @@
+<div style="padding-top: 8px">
+  <ul class="tasks zebra-list">
+
+    <% @project.documents.each do |doc| %>
+    <li>
+      <input type="checkbox"> 
+      <span class="title"><%= link_to doc.name, doc %> 
+        <div style="float: right">
+          <%= link_to icon(:edit, :white) + ' Edit', "#editProject", :data => { :url => edit_project_path(@project), :toggle => "modal" }, :class => "edit-project-button btn btn-primary" %>  
+          <%= link_to icon(:remove , :white) + ' Remove', doc, :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-danger" %>
+        </div>
+     </span> 
+     <span class="meta">Created <em><%=time_ago_in_words(doc.created_at)%></em> ago by <em><%=doc.project.user.name%></em></span>
+   </li>
+   <% end %>
+ </ul>
+</div>
+
+<a href="#" class="btn btn-small"><i class="icon-pencil icon-white"></i> </a>

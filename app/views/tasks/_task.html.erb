@@ -1,0 +1,12 @@
+
+
+  <div class="task">
+    <div class="created_at"><%= task.created_at.strftime("%B %d, %Y") %></div>
+    <div class="content">
+      <%= task.title %>
+    </div>
+    <div class="actions">
+      <%= link_to "Reply", new_task_path(:parent_id => task, :project_id => task.project) %> |
+      <%= link_to "Destroy", task, :confirm => "Are you sure?", :method => :delete %>
+    </div>
+  </div>

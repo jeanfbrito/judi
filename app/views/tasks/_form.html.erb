@@ -1,0 +1,35 @@
+<%= simple_form_for(@task) do |f| %>
+  <%= f.hidden_field :parent_id %>
+  <%= f.hidden_field :project_id %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.input :status, :include_blank => false %>
+  </div>
+  <div class="field">
+    <%= f.label :priority %><br />
+    <%= f.input :priority, :include_blank => false %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.input :description, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Basic'} } %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

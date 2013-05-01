@@ -1,0 +1,6 @@
+<ul class="breadcrumb">
+  <li><b><%= link_to "Project: " +  @task.project.title, @task.project %> </b> <span class="divider">/</span> </li>
+  <% for ancestor in @task.ancestors do %>
+  <li><%= link_to ancestor.title, ancestor %> <span class="divider">/</span></li>
+  <% end %>
+</ul>
