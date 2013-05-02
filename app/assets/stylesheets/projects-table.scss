@@ -1,0 +1,58 @@
+#projects table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+#projects thead th {
+    background-color: #006DCC;
+    color: white;
+}
+
+#projects tbody td {
+    background-color: white;
+}
+
+#projects tr td:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-left: 1px solid #ddd;
+    width: 25px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#projects tr td:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-right: 1px solid #ddd;
+}
+
+#projects .table td {
+    border-bottom: 1px solid #ddd;
+}
+
+#projects .table td:nth-child(n) {
+    border-left: 1px solid #ddd;
+}
+
+#projects .table td:nth-child(2) {
+    margin: 10px;
+    width: 101px;
+    height: 101px;
+    background-color: #F4F4F4;
+}
+
+#projects .table td:last-child {
+    padding-top: 15px;
+    width: 130px;
+    text-align: center;
+}
+
+#projects .table td:last-child .btn {
+     margin: 5px 5px;   
+}
+
+.spaced {
+    padding-left: 10px;
+    margin-left: 10px;
+}
